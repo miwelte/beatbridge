@@ -1,0 +1,22 @@
+# Runtime data
+**/db/
+
+# Data
+**/data/
+
+# Logs
+**.log*
+**.logs*
+**/log/
+**/logs/
+**/__pycache__/
+
+# Editor directories and files
+**.vscode/*
+.DS_Store
+
+# Virtual Environments
+**.env*
+**/.env*
+**/venv*
+**/.venv*

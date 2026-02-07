@@ -1,0 +1,116 @@
+# Beatbridge Configuration File
+
+# ---------------------------------------------
+
+# This file defines all runtime parameters for the Beatbridge daemon.
+
+# It is designed to be explicit, readable and safe for long-term operation.
+
+[general]
+
+# Initial BPM when no audio or tap information is available
+
+initial_bpm = 120.0
+
+# Operating mode: "primary" or "standby"
+
+# standby disables MIDI output but keeps BPM state running
+
+mode = "primary"
+
+# Enable verbose logging (recommended only for commissioning)
+
+verbose = false
+
+[audio]
+
+# ALSA device identifier
+
+# Examples:
+
+# "hw:USB"
+
+# "hw:2,0"
+
+# "default"
+
+alsa_device = "hw:USB"
+
+# Audio sample rate (Hz)
+
+sample_rate = 48000
+
+# Audio buffer size (frames)
+
+buffer_size = 256
+
+# Minimum confidence required from aubio to accept BPM
+
+confidence_threshold = 0.75
+
+[bpm]
+
+# Exponential Moving Average factor (0.0 – 1.0)
+
+# Lower values = slower, more stable BPM changes
+
+ema_alpha = 0.15
+
+# Minimum and maximum allowed BPM
+
+min_bpm = 60.0
+max_bpm = 180.0
+
+[tap]
+
+# Enable GPIO tap input
+
+enabled = true
+
+# GPIO pin number (BCM numbering)
+
+gpio_pin = 17
+
+# Software debounce time in milliseconds
+
+debounce_ms = 40
+
+# Minimum interval between taps (ms) to avoid double triggers
+
+min_interval_ms = 120
+
+# Number of taps required to calculate BPM
+
+taps_required = 4
+
+[midi]
+
+# MIDI output port name (as seen by ALSA / rtmidi)
+
+output_port = "mioXC"
+
+# MIDI note number for beat (C3 = 60)
+
+beat_note = 60
+
+# MIDI note number for downbeat (optional, set to -1 to disable)
+
+downbeat_note = 61
+
+# MIDI velocity for beat notes
+
+velocity = 100
+
+[redundancy]
+
+# Enable heartbeat transmission (for future hot-standby setups)
+
+heartbeat_enabled = false
+
+# Heartbeat interval in seconds
+
+heartbeat_interval = 1.0
+
+# UDP broadcast port for BPM state sync (optional)
+
+state_sync_port = 5005
