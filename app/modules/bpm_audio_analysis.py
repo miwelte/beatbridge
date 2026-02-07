@@ -7,6 +7,10 @@
 __author__ = "mail@michael.welte.de"
 __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
 
+
+from bpm_state import BPMState
+
+
 def audio_bpm_thread(state: BPMState):
     detector = AubioTempoDetector()
     EMA_ALPHA = 0.15

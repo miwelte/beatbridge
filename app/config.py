@@ -11,9 +11,22 @@ __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
 import os
 import logging
 import pytz
+from dotenv import load_dotenv
+from urllib.parse import urljoin
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+ENV_FILE = ".env-atsk.dev"
 RUN_ENV = os.getenv("RUN_ENV", "localhost")
+
+# Use environment variables as defined in container compose declarations.
+print("INFO: Determining 'BASE_DIR' and loading 'env' variables from container compose declarations.")
+env = os.environ.get
+if RUN_ENV == "localhost":
+    if load_dotenv(os.path.join(BASE_DIR, ENV_FILE)):
+        env = os.environ.get
+        print(f"INFO: Dotenv loaded environment variables from localhost '{ENV_FILE}'.")
+    else:
+        raise Exception(f"ERROR: DotenvFile '{ENV_FILE}' not found.")
 
 
 class Config:
@@ -22,9 +35,6 @@ class Config:
     APP_ENV = env("ENVIRONMENT") or None
     APP_ENV_IS_DEV = APP_ENV == "development"
     APP_ENV_IS_PROD = APP_ENV == "production"
-    RUN_ENV_IS_LOCALHOST = RUN_ENV == "localhost"
-    RUN_ENV_IS_DOCKER = RUN_ENV == "docker"
-    RUN_ENV_IS_K8S = RUN_ENV == "k8s"
     RUN_ENV_INFO = str(RUN_ENV)
     LOG_LEVEL = logging.DEBUG if APP_ENV_IS_DEV else logging.INFO
     

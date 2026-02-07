@@ -8,6 +8,12 @@ __author__ = "mail@michael.welte.de"
 __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
 
 
+import time
+from sleep_until import sleep_until
+
+from bpm_state import BPMState
+
+
 def clock_thread(state: BPMState, beat_queue):
     next_tick = time.monotonic()
 

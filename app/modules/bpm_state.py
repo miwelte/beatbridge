@@ -7,11 +7,16 @@
 __author__ = "mail@michael.welte.de"
 __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
 
-
+# Common imports
 import threading
 import time
 
+# App imports
+# from bpm_state import BPMState
+
+
 class BPMState:
+
     def __init__(self, bpm_init=120.0):
         self.lock = threading.Lock()
         self.bpm = bpm_init

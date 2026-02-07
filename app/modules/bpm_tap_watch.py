@@ -7,9 +7,12 @@
 __author__ = "mail@michael.welte.de"
 __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
 
-
+# Common imports
 import time
 from statistics import median
+
+# App imports
+from bpm_state import BPMState
 
 
 def tap_thread(state: BPMState):
