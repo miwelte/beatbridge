@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 from urllib.parse import urljoin
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-ENV_FILE = ".env-atsk.dev"
+ENV_FILE = ".env-beatbridge.dev"
 RUN_ENV = os.getenv("RUN_ENV", "localhost")
 
 # Use environment variables as defined in container compose declarations.

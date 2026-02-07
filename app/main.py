@@ -12,12 +12,11 @@ from config import Config as cfg
 from __init__ import custom_logger as clog
 
 from modules.bpm_state import BPMState
-
+from modules.bpm_audio_analysis import audio_bpm_thread
+from modules.bpm_tap_watch import tap_thread
 
 
 state = BPMState()
-beat_queue = Queue()
-
 
 # Main
 def main():
