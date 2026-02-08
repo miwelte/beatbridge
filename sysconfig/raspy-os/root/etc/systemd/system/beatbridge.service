@@ -1,10 +1,10 @@
-# Beatbridge systemd Service Unit
-# systemd Unit: /etc/systemd/system/beatbridge.service
+# beatbridge - systemd Service Unit
+# /etc/systemd/system/beatbridge.service
 # ---------------------------------------------
 # Club-grade, headless operation with restart protection and hardening
 
 [Unit]
-Description=Beatbridge — Audio to MIDI Tempo Engine
+Description=Beatbridge - Audio to MIDI Tempo Engine
 After=network.target sound.target
 Wants=network.target
 
@@ -20,7 +20,7 @@ WorkingDirectory=/opt/beatbridge
 Environment=PYTHONUNBUFFERED=1
 Environment=PYTHONDONTWRITEBYTECODE=1
 
-ExecStart=/opt/beatbridge/.venv/bin/python -m beatbridge 
+ExecStart=/opt/beatbridge/.venv/bin/python -m beatbridge
 --config /etc/beatbridge/beatbridge.toml
 
 Restart=on-failure
@@ -29,13 +29,11 @@ TimeoutStartSec=10
 TimeoutStopSec=5
 
 # Scheduling: favor deterministic timing
-
 Nice=-5
 IOSchedulingClass=realtime
 IOSchedulingPriority=0
 
 # Security hardening
-
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
@@ -49,7 +47,6 @@ MemoryDenyWriteExecute=true
 RestrictNamespaces=true
 
 # Device access
-
 DevicePolicy=closed
 DeviceAllow=/dev/snd/ rwm
 DeviceAllow=/dev/gpiomem rwm
@@ -57,11 +54,9 @@ DeviceAllow=/dev/gpiochip0 rwm
 DeviceAllow=/dev/gpiochip1 rwm
 
 # Runtime write access
-
 ReadWritePaths=/run/beatbridge
 
 # Logging
-
 StandardOutput=journal
 StandardError=journal
 

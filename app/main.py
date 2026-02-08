@@ -17,6 +17,7 @@ from modules.bpm_tap_watch import tap_thread
 
 
 state = BPMState()
+beat_queue = Queue()
 
 # Main
 def main():
