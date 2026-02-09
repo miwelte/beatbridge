@@ -9,3 +9,9 @@ sudo systemctl daemon-reload
 sudo systemctl enable beatbridge.service
 sudo systemctl start beatbridge.service
 sudo journalctl -u beatbridge.service -f
+
+
+
+
+
+sudo hostnamectl set-hostname beatbridge-dev01

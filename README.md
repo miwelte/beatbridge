@@ -1,4 +1,5 @@
-# RasPi BPM Hold → MIDI Daemon
+# beatbridge 
+## RasPi 4 BPM Hold → MIDI Daemon
 
 > **Club‑tauglicher Ersatz für SBX‑1**
 > Audio → BPM‑Analyse → *Hold last BPM* → interner Clock → MIDI Beat → e:cue LAS
