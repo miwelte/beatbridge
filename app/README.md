@@ -10,13 +10,13 @@
 
 ### DevOps
 
-```pip freeze > requirements.txt```\
+`pip freeze > requirements.txt` \
 <br>
-```pip install -r requirements.txt```\
+`pip install -r requirements.txt` \
 <br>
-```pip freeze > requirements.txt```\
+`pip freeze > requirements.txt` \
 <br>
-```pip freeze > requirements.txt```\
+`pip freeze > requirements.txt` \
 <br>
-```pip freeze > requirements.txt```\
+`pip freeze > requirements.txt`\
 <br>
