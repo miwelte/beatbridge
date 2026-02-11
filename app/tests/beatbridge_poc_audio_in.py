@@ -6,6 +6,8 @@
 """
 __author__ = "mail@michael.welte.de"
 __copyright__ = "Copyright © 2025-2026 by Michael Welte. All rights reserved."
+
+
 import time
 import numpy as np
 import sounddevice as sd
@@ -17,11 +19,11 @@ BLOCK_SIZE = 1024  # ~21 ms @ 48 kHz
 DEVICE_INDEX = 0   # HiFiBerry DAC+ADC (hw:2,0)
 
 RMS_SIGNAL_PRESENT = 0.002
-RMS_PEAK = 0.03
+RMS_PEAK = 0.05
 
-PEAK_THRESHOLD_RED = 0.05
-PEAK_THRESHOLD_YLW = 0.05
-PEAK_THRESHOLD_GRN = 0.05
+PEAK_THRESHOLD_RED = 0.7
+PEAK_THRESHOLD_YLW = 0.5
+PEAK_THRESHOLD_GRN = 0.0
 
 PEAK_COOLDOWN_S = 0.10
 
